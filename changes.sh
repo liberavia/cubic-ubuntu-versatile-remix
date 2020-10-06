@@ -32,7 +32,7 @@ snap remove snap-store
 # add packages
 
 # systemtools
-apt -y install git vim gdebi balena-etcher-electron
+apt -y install git vim ssh gdebi balena-etcher-electron gnome-boxes
 snap install p7zip-desktop
 # extensions
 apt -y install gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-tweaks
