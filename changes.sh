@@ -22,7 +22,7 @@ function addRepositories {
 # add ppa repositories
 updateSystem
 addRepositories
-apt -y updatebalena-etcher-electron
+apt -y update
 
 # change snapstore to gnome software and add flathub as source
 apt -y install gnome-software gnome-software-plugin-flatpak
