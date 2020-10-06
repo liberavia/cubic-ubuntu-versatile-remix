@@ -12,10 +12,11 @@ function updateFlatpaks {
 }
 
 function addRepositories {
+  add-apt-repository universe
+  add-apt-repository multiverse
   add-apt-repository -ys 'deb http://archive.canonical.com/ubuntu focal partner'
-  add-apt-repository -ys 'http://dl.google.com/linux/chrome/deb/'
-  add-apt-repository -y 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
-  add-apt-repository -y 'https://deb.etcher.io stable etcher'
+  # add-apt-repository -y 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+  # add-apt-repository -y 'https://deb.etcher.io stable etcher'
   add-apt-repository -y ppa:lutris-team/lutris
 }
 
@@ -42,7 +43,7 @@ snap install walc
 flatpak install flathub org.telegram.desktop
 flatpak install flathub org.signal.Signal
 # entertainment
-apt -y wine steam-installer lutris
+apt -y install wine steam-installer lutris
 snap install obs-studio
 flatpak install flathub com.teamspeak.TeamSpeak
 snap install spotify
