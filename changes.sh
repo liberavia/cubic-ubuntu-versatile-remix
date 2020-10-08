@@ -4,7 +4,7 @@ function updateSystem {
   apt -y update
   apt -y dist-upgrade
   apt -y autoremove
-  snap refresh
+  # snap refresh => Currently no snap actions can be performed in chroot
 }
 
 function updateFlatpaks {
@@ -28,25 +28,24 @@ apt -y update
 # change snapstore to gnome software and add flathub as source
 apt -y install gnome-software gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-snap remove snap-store
+# snap remove snap-store => Currently no snap actions can be performed in chroot
 
 # add packages
 
 # systemtools
-apt -y install git vim ssh gdebi balena-etcher-electron gnome-boxes
-snap install p7zip-desktop
+apt -y install git vim ssh gdebi balena-etcher-electron gnome-boxes p7zip-full
 # extensions
 apt -y install gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-tweaks
 # internet/communications
 apt -y install chromium-browser evolution
-snap install walc
-flatpak install flathub org.telegram.desktop
-flatpak install flathub org.signal.Signal
+flatpak install flathub com.gigitux.gtkwhats
+flatpak -y install flathub org.telegram.desktop
+flatpak -y install flathub org.signal.Signal
 # entertainment
 apt -y install wine steam-installer lutris
-snap install obs-studio
-flatpak install flathub com.teamspeak.TeamSpeak
-snap install spotify
+flatpak install flathub com.obsproject.Studio
+flatpak -y install flathub com.teamspeak.TeamSpeak
+flatpak install flathub com.spotify.Client
 
 # remove packages
 apt -y remove firefox thunderbird
