@@ -38,14 +38,14 @@ apt -y install git vim ssh gdebi balena-etcher-electron gnome-boxes p7zip-full
 apt -y install gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-tweaks
 # internet/communications
 apt -y install chromium-browser evolution
-flatpak install flathub com.gigitux.gtkwhats
+flatpak -y install flathub com.gigitux.gtkwhats
 flatpak -y install flathub org.telegram.desktop
 flatpak -y install flathub org.signal.Signal
 # entertainment
 apt -y install wine steam-installer lutris
-flatpak install flathub com.obsproject.Studio
+flatpak -y install flathub com.obsproject.Studio
 flatpak -y install flathub com.teamspeak.TeamSpeak
-flatpak install flathub com.spotify.Client
+flatpak -y install flathub com.spotify.Client
 
 # remove packages
 apt -y remove firefox thunderbird
