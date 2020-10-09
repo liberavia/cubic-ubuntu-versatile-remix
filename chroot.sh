@@ -77,6 +77,7 @@ flatpak -y install flathub com.spotify.Client
 apt -y remove firefox thunderbird
 
 #finish
+downloadBackground
 setVersatileGnomeDefaults
 updateSystem
 updateFlatpaks
