@@ -15,8 +15,6 @@ function addRepositories {
   add-apt-repository universe
   add-apt-repository multiverse
   add-apt-repository -ys 'deb http://archive.canonical.com/ubuntu focal partner'
-  # add-apt-repository -y 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
-  # add-apt-repository -y 'https://deb.etcher.io stable etcher'
   add-apt-repository -y ppa:lutris-team/lutris
 }
 
@@ -54,7 +52,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # add packages
 
 # systemtools
-apt -y install git vim ssh gdebi balena-etcher-electron gnome-boxes p7zip-full
+apt -y install git vim ssh gdebi gnome-boxes p7zip-full
 # extensions
 apt -y install gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-tweaks
 # internet/communications
@@ -74,5 +72,4 @@ apt -y remove firefox thunderbird
 
 #finish
 setVersatileGnomeDefaults
-setDesktopBackground
 updateSystem
