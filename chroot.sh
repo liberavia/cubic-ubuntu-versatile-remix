@@ -25,7 +25,7 @@ function installGoogleChrome {
   rm google-chrome-stable_current_amd64.deb
 }
 
-downloadBackground {
+function downloadBackground {
   wget https://raw.githubusercontent.com/liberavia/cubic-ubuntu-versatile-remix/main/assets/wallpaper/final-ubuntu-versatile-remix.png
   mv final-ubuntu-versatile-remix.png /usr/share/backgrounds/final-ubuntu-versatile-remix.png
 }
