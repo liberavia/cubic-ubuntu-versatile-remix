@@ -25,16 +25,21 @@ function installGoogleChrome {
   rm google-chrome-stable_current_amd64.deb
 }
 
+downloadBackground {
+  wget https://raw.githubusercontent.com/liberavia/cubic-ubuntu-versatile-remix/main/assets/wallpaper/final-ubuntu-versatile-remix.png
+  mv final-ubuntu-versatile-remix.png /usr/share/backgrounds/final-ubuntu-versatile-remix.png
+}
+
 function setVersatileGnomeDefaults {
 cat > /usr/share/glib-2.0/schemas/90_ubuntu-versatile-favorites.gschema.override << ENDOFFILE
 [org.gnome.shell]
 favorite-apps = ['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Evolution.desktop', 'gnome-control-center.desktop', 'org.gnome.Software.desktop', 'yelp.desktop']
 
 [org.gnome.desktop.background]
-picture-uri = 'file:///usr/share/backgrounds/brad-huchteman-stone-mountain.jpg'
+picture-uri = 'file:///usr/share/backgrounds/final-ubuntu-versatile-remix.png'
 
 [org.gnome.desktop.screensaver]
-picture-uri = 'file:///usr/share/backgrounds/brad-huchteman-stone-mountain.jpg'
+picture-uri = 'file:///usr/share/backgrounds/final-ubuntu-versatile-remix.png'
 ENDOFFILE
 glib-compile-schemas /usr/share/glib-2.0/schemas/
 }
