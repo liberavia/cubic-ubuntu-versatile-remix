@@ -8,7 +8,7 @@ function updateSystem {
 }
 
 function updateFlatpaks {
-  flatpak update
+  flatpak -y update
 }
 
 function addRepositories {
@@ -28,7 +28,7 @@ function installGoogleChrome {
 function setVersatileGnomeDefaults {
 cat > /usr/share/glib-2.0/schemas/90_ubuntu-versatile-favorites.gschema.override << ENDOFFILE
 [org.gnome.shell]
-favorite-apps = ['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.Boxes.desktop', 'gnome-control-center.desktop', 'org.gnome.Software.desktop', 'yelp.desktop']
+favorite-apps = ['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Evolution.desktop', 'gnome-control-center.desktop', 'org.gnome.Software.desktop', 'yelp.desktop']
 
 [org.gnome.desktop.background]
 picture-uri = 'file:///usr/share/backgrounds/brad-huchteman-stone-mountain.jpg'
@@ -65,6 +65,7 @@ flatpak -y install flathub org.signal.Signal
 apt -y install wine steam-installer lutris
 flatpak -y install flathub com.obsproject.Studio
 flatpak -y install flathub com.teamspeak.TeamSpeak
+flatpak -y install flathub com.discordapp.Discord
 flatpak -y install flathub com.spotify.Client
 
 # remove packages
@@ -73,3 +74,4 @@ apt -y remove firefox thunderbird
 #finish
 setVersatileGnomeDefaults
 updateSystem
+updateFlatpaks
