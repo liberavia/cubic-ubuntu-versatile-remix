@@ -20,6 +20,27 @@ function addRepositories {
   add-apt-repository -y ppa:lutris-team/lutris
 }
 
+function installGoogleChrome {
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  dpkg -i google-chrome-stable_current_amd64.deb
+  apt-get install -yf
+  rm google-chrome-stable_current_amd64.deb
+}
+
+function setVersatileGnomeDefaults {
+cat > /usr/share/glib-2.0/schemas/90_ubuntu-versatile-favorites.gschema.override << ENDOFFILE
+[org.gnome.shell]
+favorite-apps = ['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.Boxes.desktop', 'gnome-control-center.desktop', 'org.gnome.Software.desktop', 'yelp.desktop']
+
+[org.gnome.desktop.background]
+picture-uri = 'file:///usr/share/backgrounds/brad-huchteman-stone-mountain.jpg'
+
+[org.gnome.desktop.screensaver]
+picture-uri = 'file:///usr/share/backgrounds/brad-huchteman-stone-mountain.jpg'
+ENDOFFILE
+glib-compile-schemas /usr/share/glib-2.0/schemas/
+}
+
 # add ppa repositories
 updateSystem
 addRepositories
@@ -37,7 +58,8 @@ apt -y install git vim ssh gdebi balena-etcher-electron gnome-boxes p7zip-full
 # extensions
 apt -y install gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-tweaks
 # internet/communications
-apt -y install chromium-browser evolution
+installGoogleChrome
+flatpak -y install flathub org.gnome.Evolution
 flatpak -y install flathub com.gigitux.gtkwhats
 flatpak -y install flathub org.telegram.desktop
 flatpak -y install flathub org.signal.Signal
@@ -50,4 +72,7 @@ flatpak -y install flathub com.spotify.Client
 # remove packages
 apt -y remove firefox thunderbird
 
+#finish
+setVersatileGnomeDefaults
+setDesktopBackground
 updateSystem
